@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Solutions - Smart Digital Solutions for Your Business</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Updated with larger logo and pure white background */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 1); /* Pure white background */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for definition */
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 1); /* Keep pure white when scrolled */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 0 0; /* Remove left padding, keep right padding for menu items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add left padding only to the logo to control its positioning */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Increased gap for better spacing */
+    font-size: 2rem; /* Further increased font size */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap; /* Prevents text from wrapping to multiple lines */
+    padding-left: 1rem; /* Small padding to prevent touching the very edge */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Increased gap for better spacing */
+    font-size: 2rem; /* Further increased font size */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap; /* Prevents text from wrapping to multiple lines */
+}
+
+.logo img {
+    height: 80px; /* Further increased from 65px to 80px */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive adjustments for larger logo */
+@media (max-width: 1024px) {
+    .logo img {
+        height: 75px; /* Adjusted for tablet */
+    }
+    
+    .logo {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 70px; /* Adjusted for mobile */
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 1rem 0 0; /* Reduce right padding on small screens */
+    }
+    
+    .logo img {
+        height: 65px; /* Adjusted for small mobile */
+    }
+    
+    .logo {
+        font-size: 1.7rem;
+        gap: 0.8rem; /* Slightly reduce gap on small screens */
+        padding-left: 0.5rem; /* Reduce left padding on small screens */
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-container {
+        padding: 0 0.5rem 0 0; /* Further reduce right padding on very small screens */
+    }
+    
+    .logo img {
+        height: 60px; /* Minimum size for very small screens */
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        gap: 0.6rem; /* Further reduce gap on very small screens */
+        padding-left: 0.25rem; /* Minimal left padding on very small screens */
+    }
+}
+
+
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .cta-nav-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cta-nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.7) 100%),
+                url('./complexbacground.png'),
+                linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: scroll;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.2) 0%, rgba(15, 23, 42, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-logo {
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease forwards 0.3s;
+        }
+
+        .hero-logo img {
+            height: 80px;
+            width: auto;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease forwards 0.7s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease forwards 0.9s;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-elements::after {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-button {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            height: 300px;
+        }
+
+        .project-card:nth-child(2) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-card:nth-child(3) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-card:nth-child(4) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-info {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-btn {
+            background: white;
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin: 0 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-logo-text {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 2rem;
+            color: #ccc;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .close:hover {
+            color: #ef4444;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 999;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 0.5rem 0;
+            }
+
+            .nav-menu a {
+                padding: 0.8rem 1rem;
+                display: block;
+            }
+
+            .cta-nav-button {
+                margin-top: 1rem;
+                display: inline-block;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-logo img {
+                height: 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+                margin: 10% auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-logo img {
+                height: 50px;
+            }
+            
+            .logo img {
+                height: 30px;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.7rem;
+            }
+            
+            .footer-logo {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .logo img {
+                height: 25px;
+            }
+            
+            .logo {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="mylogo.png" alt="Complex Solutions Logo">
+                <span class="logo-text">Complex Solutions</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="firebase.html">Ready Made Software</a></li> 
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-nav-button">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-elements"></div>
+        <div class="hero-content">
+            <h1>Smart Digital Solutions for Your Business</h1>
+            <p>Transform your business with cutting-edge websites, e-commerce platforms, POS systems, Active Directory configuration, and comprehensive server management solutions</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">See Our Work</a>
+                <a href="#" class="btn btn-outline" onclick="openModal('demoModal')">View Live Demos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive digital solutions tailored to elevate your business to the next level</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies. Responsive, fast, and SEO-optimized to help your business grow online.</p>
+                    <button class="demo-button" onclick="openModal('websiteDemo')">View Demo</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Complete online stores with secure payment integration, inventory management, customer analytics, and multi-location support to boost your online sales.</p>
+                    <button class="demo-button" onclick="openModal('ecommerceDemo')">View E-commerce Demo</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <h3>POS Systems</h3>
+                    <p>Advanced Point of Sale systems for retail and hospitality businesses. Streamline operations, track sales, and manage inventory with real-time reporting.</p>
+                    <button class="demo-button" onclick="openModal('posDemo')">View POS Demo</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Active Directory</h3>
+                    <p>Professional Active Directory setup and configuration to secure your business network, manage user access efficiently, and implement group policies.</p>
+                    <button class="demo-button" onclick="openModal('adDemo')">View AD Demo</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Server Management</h3>
+                    <p>Complete server setup, configuration, and ongoing maintenance. Real-time monitoring, automated backups, and security optimization for maximum uptime.</p>
+                    <button class="demo-button" onclick="openModal('serverDemo')">View Server Demo</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Applications</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android, designed for optimal user experience with cloud integration and offline functionality.</p>
+                    <button class="demo-button" onclick="openModal('appDemo')">View App Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Complex Solutions?</h2>
+                <p>We deliver cutting-edge technology solutions with unmatched expertise and support</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast Performance</h3>
+                    <p>Optimized code and infrastructure for maximum speed and efficiency</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-level security with 99.9% uptime guarantee and data protection</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <h3>Scalable Architecture</h3>
+                    <p>Grow without limits with our flexible and robust system design</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored applications that fit your specific business requirements</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock technical support and proactive maintenance</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovation Driven</h3>
+                    <p>Cutting-edge technology and latest industry standards implementation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Explore our portfolio of successful projects across different industries</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Full-featured online store with advanced payment integration and analytics</p>
+                            <button class="project-btn" onclick="openModal('websiteDemo')">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Network Infrastructure</h3>
+                            <p>Enterprise Active Directory setup and server management case study</p>
+                            <button class="project-btn" onclick="openModal('serverDemo')">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied clients</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Complex Solutions transformed our business with their incredible e-commerce platform. Sales have increased by 300% since launch, and their ongoing support has been exceptional!"</p>
+                    <div class="testimonial-author">- Sarah Mukami, Retail Business Owner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Started Today</h2>
+                <p>Ready to transform your business? Contact us for a free consultation</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Build Something Amazing</h3>
+                    <p>Our team of experts is ready to discuss your project and provide tailored solutions that drive real business results. From initial consultation to ongoing support, we're here to help your business succeed in the digital landscape.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-envelope" style="color: #667eea;"></i>
+                            <strong>Email:</strong> info@complexsolutions.com
+                        </div>
+                        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-phone" style="color: #667eea;"></i>
+                            <strong>Phone:</strong> +254 700 000 000
+                        </div>
+                        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #667eea;"></i>
+                            <strong>Location:</strong> Ruiru, Kiambu County, Kenya
+                        </div>
+                        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-clock" style="color: #667eea;"></i>
+                            <strong>Response Time:</strong> Within 24 hours
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-globe" style="color: #667eea;"></i>
+                            <strong>Service Areas:</strong> Kenya & Global Remote Support
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="ecommerce">E-commerce Solutions</option>
+                                <option value="pos">POS Systems</option>
+                                <option value="active-directory">Active Directory</option>
+                                <option value="server-management">Server Management</option>
+                                <option value="mobile-apps">Mobile Applications</option>
+                                <option value="other">Other/Multiple Services</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project requirements and business goals..."></textarea>
+                        </div>
+                        <button type="submit" class="demo-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Complex Solutions Logo">
+                        <span class="footer-logo-text">Complex Solutions</span>
+                    </div>
+                    <p>Your trusted partner for digital transformation. We build solutions that drive real business results and help companies thrive in the digital age.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> info@complexsolutions.com</p>
+                    <p><i class="fas fa-phone"></i> +254 700 000 000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ruiru, Kiambu County, Kenya</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p><a href="#services">Web Development</a></p>
+                    <p><a href="#services">E-Commerce Solutions</a></p>
+                    <p><a href="#services">POS Systems</a></p>
+                    <p><a href="#services">Active Directory</a></p>
+                    <p><a href="#services">Server Management</a></p>
+                    <p><a href="#services">Mobile Applications</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#testimonials">Client Reviews</a></p>
+                    <p><a href="#projects">Portfolio</a></p>
+                    <p><a href="#features">Features</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Complex Solutions. All rights reserved. | Designed with passion in Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modals -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('demoModal')">&times;</span>
+            <h2>Live Demonstrations Available</h2>
+            <p>Explore our comprehensive suite of business solutions with interactive demos:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 10px;">
+                    <i class="fas fa-shopping-cart" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem;"></i>
+                    <h4>E-commerce Platform</h4>
+                    <button class="demo-button" style="width: 100%; margin-top: 1rem;" onclick="closeModal('demoModal'); openModal('ecommerceDemo')">View Demo</button>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 10px;">
+                    <i class="fas fa-cash-register" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem;"></i>
+                    <h4>POS System</h4>
+                    <button class="demo-button" style="width: 100%; margin-top: 1rem;" onclick="closeModal('demoModal'); openModal('posDemo')">View Demo</button>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 10px;">
+                    <i class="fas fa-laptop-code" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem;"></i>
+                    <h4>Website Portfolio</h4>
+                    <button class="demo-button" style="width: 100%; margin-top: 1rem;" onclick="closeModal('demoModal'); openModal('websiteDemo')">View Demo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ecommerceDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ecommerceDemo')">&times;</span>
+            <h2>E-commerce Platform Demo</h2>
+            <p>Experience our powerful e-commerce solution featuring:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>Advanced product catalog with search and filtering</li>
+                <li>Secure payment processing with multiple gateways</li>
+                <li>Real-time inventory tracking and alerts</li>
+                <li>Customer analytics and behavior insights</li>
+                <li>Mobile-responsive design for all devices</li>
+                <li>SEO optimization and marketing tools</li>
+                <li>Multi-currency and multi-language support</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">🚀 Interactive Demo Coming Soon</h3>
+                <p>We're putting the finishing touches on our interactive e-commerce demo. Contact us for a personalized walkthrough of our platform's capabilities and see how it can transform your online business.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="posDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('posDemo')">&times;</span>
+            <h2>POS System Demo</h2>
+            <p>Explore our comprehensive POS solution with:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>Intuitive touch interface for easy operation</li>
+                <li>Multi-location support and centralized management</li>
+                <li>Real-time sales reporting and analytics</li>
+                <li>Advanced inventory management with alerts</li>
+                <li>Customer loyalty programs and CRM integration</li>
+                <li>Employee time tracking and management</li>
+                <li>Tax calculation and compliance features</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">💳 Schedule Live Demo</h3>
+                <p>Schedule a live demonstration to see our POS system in action. Perfect for retail stores, restaurants, and service businesses of all sizes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="websiteDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('websiteDemo')">&times;</span>
+            <h2>Website Development Portfolio</h2>
+            <p>Browse our recent website projects showcasing:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>Responsive design that works on all devices</li>
+                <li>SEO optimization for better search rankings</li>
+                <li>Fast loading times and optimized performance</li>
+                <li>Modern UI/UX design principles</li>
+                <li>Content management systems (CMS)</li>
+                <li>E-commerce integration capabilities</li>
+                <li>Custom functionality and third-party integrations</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">🌐 Portfolio Showcase</h3>
+                <p>View our collection of successful website projects across various industries. Each site is custom-built to reflect the client's brand, goals, and target audience.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="serverDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('serverDemo')">&times;</span>
+            <h2>Server Management Dashboard</h2>
+            <p>Monitor and manage your infrastructure with:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>Real-time server monitoring and alerts</li>
+                <li>Automated backup systems with recovery options</li>
+                <li>Security threat detection and prevention</li>
+                <li>Performance optimization and resource management</li>
+                <li>24/7 uptime monitoring with notifications</li>
+                <li>Remote server administration tools</li>
+                <li>Scalability planning and implementation</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">🖥️ Management Console</h3>
+                <p>Experience our server management interface designed for both technical and non-technical users. Complete visibility and control over your infrastructure.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="adDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('adDemo')">&times;</span>
+            <h2>Active Directory & Group Policy</h2>
+            <p>Enterprise user management featuring:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>Centralized user authentication and authorization</li>
+                <li>Group policy management and deployment</li>
+                <li>Security compliance reporting and auditing</li>
+                <li>Automated user provisioning and de-provisioning</li>
+                <li>Role-based access control (RBAC)</li>
+                <li>Single sign-on (SSO) integration</li>
+                <li>Domain controller setup and management</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">🔐 Enterprise Security</h3>
+                <p>Secure your organization with our comprehensive Active Directory solutions. Perfect for businesses requiring centralized IT management and security.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="appDemo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('appDemo')">&times;</span>
+            <h2>Mobile App Development</h2>
+            <p>Native and cross-platform apps featuring:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8;">
+                <li>iOS and Android compatibility</li>
+                <li>Cloud integration and synchronization</li>
+                <li>Push notifications and real-time updates</li>
+                <li>Offline functionality for uninterrupted use</li>
+                <li>Analytics and user behavior tracking</li>
+                <li>In-app purchases and monetization</li>
+                <li>Social media integration and sharing</li>
+            </ul>
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">📱 App Portfolio</h3>
+                <p>Discover our mobile app portfolio across various industries. From business productivity to consumer applications, we create engaging mobile experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Show/hide scroll to top button
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                    document.getElementById('mobile-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple form validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields (Name, Email, and Message).');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                this.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Animate feature items
+            const featureItems = document.querySelectorAll('.feature-item');
+            featureItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // Animate project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Add particle effect to hero section
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 255, 255, 0.5)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.animationName = 'float';
+            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            particle.style.animationTimingFunction = 'linear';
+            particle.style.animationIterationCount = 'infinite';
+            particle.style.pointerEvents = 'none';
+            
+            document.querySelector('.hero').appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, 5000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 80) {
+            let i = 0;
+            element.innerHTML = '';
+            element.style.opacity = '1';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect after animations
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero h1');
+                if (heroTitle) {
+                    const originalText = heroTitle.textContent;
+                    heroTitle.style.animation = 'none';
+                    typeWriter(heroTitle, originalText, 60);
+                }
+            }, 1500);
+        });
+
+        // Add smooth hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
